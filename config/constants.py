@@ -1,11 +1,13 @@
 APP_TITLE = "Anjar Manpower Engine"
-APP_SUBTITLE = "Executive manpower planning"
+APP_SUBTITLE = "Executive manpower planning console"
 
 INPUT_WORKBOOK_PATH = "input/Anjar_manning.xlsx"
+WORKING_DIRECTORY = "working"
+WORKING_WORKBOOK_FILENAME = "Anjar_manning_live.xlsx"
 MASTER_SHEET_NAME = "Anjar"
 OUTPUT_DIRECTORY = "output"
 
-BUSINESS_TABS = ["Spinning", "Terry Towel", "Sheeting"]
+BUSINESS_TABS = ["Spinning", "Terry Towel", "Bedsheet", "WHSL Plant", "Other Sections"]
 
 VISIBLE_COMPACT_COLUMNS = [
     "Section",
@@ -24,25 +26,7 @@ EDITABLE_COLUMNS = [
     "Remarks",
 ]
 
-SUMMARY_COLUMNS = [
-    "Section",
-    "Machine_Count",
-    "BE_Final_Manpower",
-]
-
-PRIMARY_FILTER_COLUMNS = [
-    "Section",
-    "Designation",
-    "Dept_Machine_Name",
-    "Remarks",
-]
-
-EXECUTIVE_CARD_COLUMNS = [
-    "Total Sections",
-    "Parsed Machine Count",
-    "Total Final Manpower",
-    "Freeze Status",
-]
+SUMMARY_COLUMNS = ["Section", "Machine_Count", "BE_Final_Manpower"]
 
 MASTER_VIEW_DEFAULT_COLUMNS = [
     "Location",
@@ -60,17 +44,15 @@ MASTER_VIEW_DEFAULT_COLUMNS = [
     "Remarks",
 ]
 
-HIDDEN_SYSTEM_COLUMNS = [
-    "__excel_row_number",
-    "__row_order",
-    "__row_key",
-]
+HIDDEN_SYSTEM_COLUMNS = ["__excel_row_number", "__row_order", "__row_key"]
 
 DEFAULT_DECIMAL_PLACES = 2
-DATA_EDITOR_HEIGHT = 420
-SUMMARY_TABLE_HEIGHT = 220
-COMPACT_TABLE_HEIGHT = 220
-FINAL_TABLE_HEIGHT = 640
+DATA_EDITOR_HEIGHT = 460
+SUMMARY_TABLE_HEIGHT = 260
+COMPACT_TABLE_HEIGHT = 240
+FINAL_TABLE_HEIGHT = 700
+HELPER_TABLE_HEIGHT = 320
 
 SUCCESS_STATUS = "Frozen"
 PENDING_STATUS = "Draft"
+TOTAL_LABEL = "Total"

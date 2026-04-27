@@ -13,7 +13,6 @@ from config.ui_config import (
     RADIUS_MEDIUM,
     SECONDARY_BLUE,
     SLATE_TEXT,
-    SUCCESS_GREEN,
     WHITE,
 )
 
@@ -31,41 +30,40 @@ def apply_global_styles() -> None:
                 background: {BACKGROUND};
             }}
             .block-container {{
-                padding-top: 1.3rem;
-                padding-bottom: 2rem;
-                max-width: 96rem;
+                padding-top: 0.6rem;
+                padding-bottom: 1.5rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                max-width: 100%;
             }}
             .engine-shell {{
-                background: linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(234,244,255,0.60) 100%);
-                border: 1px solid {BORDER_COLOR};
-                border-radius: {RADIUS_LARGE};
-                padding: 1.1rem 1.25rem 0.95rem 1.25rem;
-                box-shadow: {PANEL_SHADOW};
-                margin-bottom: 1rem;
+                background: transparent;
+                border: none;
+                border-radius: 0;
+                padding: 0.15rem 0 0.35rem 0;
+                box-shadow: none;
+                margin-bottom: 0.55rem;
             }}
             .engine-title {{
                 font-size: 2.1rem;
                 font-weight: 800;
-                color: {NAVY_TEXT};
-                margin-bottom: 0.2rem;
+                color: {PRIMARY_BLUE};
+                margin-bottom: 0.15rem;
                 letter-spacing: -0.02em;
             }}
-            .engine-subtitle {{
-                font-size: 0.98rem;
-                color: {SLATE_TEXT};
-                margin-bottom: 0.15rem;
-            }}
+            .engine-subtitle {{ display: none; }}
             .summary-card {{
-                background: {WHITE};
+                background: linear-gradient(180deg, #ffffff 0%, #f3f8ff 100%);
                 border: 1px solid {BORDER_COLOR};
                 border-radius: {RADIUS_MEDIUM};
                 padding: 1rem 1.05rem;
                 box-shadow: {PANEL_SHADOW};
+                margin-bottom: 0.8rem;
             }}
             .summary-card-label {{
                 font-size: 0.82rem;
                 color: {SLATE_TEXT};
-                font-weight: 600;
+                font-weight: 700;
                 margin-bottom: 0.32rem;
             }}
             .summary-card-value {{
@@ -78,14 +76,14 @@ def apply_global_styles() -> None:
                 background: {WHITE};
                 border: 1px solid {BORDER_COLOR};
                 border-radius: {RADIUS_LARGE};
-                padding: 0.55rem 0.9rem 0.8rem 0.9rem;
+                padding: 0.65rem 0.95rem 0.85rem 0.95rem;
                 box-shadow: {PANEL_SHADOW};
                 margin-bottom: 1rem;
             }}
             .section-strip {{
                 background: linear-gradient(90deg, {PRIMARY_BLUE} 0%, {SECONDARY_BLUE} 100%);
                 color: {WHITE};
-                padding: 0.80rem 1rem;
+                padding: 0.82rem 1rem;
                 border-radius: {RADIUS_MEDIUM};
                 font-size: 1rem;
                 font-weight: 750;
@@ -101,21 +99,7 @@ def apply_global_styles() -> None:
             .summary-banner-text {{
                 color: {NAVY_TEXT};
                 font-weight: 700;
-                font-size: 0.92rem;
-            }}
-            .status-good {{
-                color: {SUCCESS_GREEN};
-                font-weight: 700;
-            }}
-            div[data-testid="stDataFrame"] {{
-                border: 1px solid {BORDER_COLOR};
-                border-radius: {RADIUS_MEDIUM};
-                overflow: hidden;
-            }}
-            div[data-testid="stDataEditor"] {{
-                border: 1px solid {BORDER_COLOR};
-                border-radius: {RADIUS_MEDIUM};
-                overflow: hidden;
+                font-size: 0.78rem;
             }}
             .stTabs [data-baseweb="tab-list"] {{
                 gap: 0.65rem;
@@ -143,6 +127,14 @@ def apply_global_styles() -> None:
                 font-weight: 700;
                 box-shadow: none;
             }}
+            .stButton > button[kind="secondary"] {{
+                background: #ffffff;
+                color: #0f172a;
+            }}
+            .stButton > button[kind="primary"] {{
+                background: linear-gradient(90deg, {PRIMARY_BLUE} 0%, {SECONDARY_BLUE} 100%);
+                color: #ffffff;
+            }}
             .freeze-button button {{
                 background: linear-gradient(90deg, {PRIMARY_BLUE} 0%, {SECONDARY_BLUE} 100%);
                 color: {WHITE};
@@ -169,6 +161,80 @@ def apply_global_styles() -> None:
                 padding: 0.9rem 1rem 0.3rem 1rem;
                 box-shadow: {PANEL_SHADOW};
                 margin-bottom: 1rem;
+            }}
+            div[data-testid="stDataEditor"] {{
+                border: 1px solid {BORDER_COLOR};
+                border-radius: {RADIUS_MEDIUM};
+                overflow: hidden;
+                background: #ffffff !important;
+            }}
+            div[data-testid="stDataEditor"] * {{
+                color: #111111 !important;
+            }}
+            div[data-testid="stDataEditor"] input,
+            div[data-testid="stDataEditor"] textarea,
+            div[data-testid="stDataEditor"] [role="gridcell"],
+            div[data-testid="stDataEditor"] [role="columnheader"],
+            div[data-testid="stDataEditor"] section,
+            div[data-testid="stDataEditor"] canvas {{
+                background: #ffffff !important;
+                color: #111111 !important;
+            }}
+            .html-table-shell {{
+                background: #ffffff;
+                border: 1px solid {BORDER_COLOR};
+                border-radius: {RADIUS_MEDIUM};
+                overflow: hidden;
+                box-shadow: {PANEL_SHADOW};
+                margin-bottom: 0.85rem;
+            }}
+            .html-table-caption {{
+                background: #eff6ff;
+                color: #0f172a;
+                font-weight: 700;
+                padding: 0.7rem 0.95rem;
+                border-bottom: 1px solid {BORDER_COLOR};
+            }}
+            .html-table-scroll {{
+                overflow: auto;
+                background: #ffffff;
+            }}
+            table.executive-table {{
+                width: max-content;
+                border-collapse: collapse;
+                background: #ffffff;
+                color: #111111;
+                font-size: 0.78rem;
+            }}
+            table.executive-table thead th {{
+                position: sticky;
+                top: 0;
+                z-index: 1;
+                background: #eff6ff;
+                color: #0f172a;
+                text-align: left;
+                padding: 0.45rem 0.5rem;
+                border-bottom: 1px solid {BORDER_COLOR};
+                font-weight: 700;
+                white-space: nowrap;
+                max-width: 210px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }}
+            table.executive-table tbody td {{
+                background: #ffffff;
+                color: #111111;
+                padding: 0.38rem 0.5rem;
+                border-bottom: 1px solid #e5edf8;
+                white-space: nowrap;
+                max-width: 210px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }}
+            table.executive-table tbody tr.total-row td {{
+                background: #f8fbff;
+                font-weight: 800;
+                color: #0f172a;
             }}
         </style>
         """,

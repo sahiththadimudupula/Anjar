@@ -4,10 +4,20 @@ import re
 
 import pandas as pd
 
+from config.workbook_config import BUSINESS_VALUE_NORMALIZATION
+
 
 def normalize_column_names(dataframe: pd.DataFrame) -> pd.DataFrame:
     normalized_dataframe = dataframe.copy()
     normalized_dataframe.columns = [str(column_name).strip() for column_name in normalized_dataframe.columns]
+    return normalized_dataframe
+
+
+def normalize_business_values(dataframe: pd.DataFrame) -> pd.DataFrame:
+    normalized_dataframe = dataframe.copy()
+    if "Business" not in normalized_dataframe.columns:
+        return normalized_dataframe
+    normalized_dataframe["Business"] = normalized_dataframe["Business"].replace(BUSINESS_VALUE_NORMALIZATION)
     return normalized_dataframe
 
 

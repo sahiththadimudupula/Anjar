@@ -53,7 +53,7 @@ def render_filter_bar(business_name: str, business_dataframe):
 
     with filter_columns[4]:
         st.markdown("<div style='height: 1.7rem;'></div>", unsafe_allow_html=True)
-        if st.button("Reset", key=f"{state_prefix}_reset_button", use_container_width=True):
+        if st.button("Reset", key=f"{state_prefix}_reset_button", width="stretch"):
             st.session_state[f"{state_prefix}_reset_filters"] = True
             st.rerun()
 

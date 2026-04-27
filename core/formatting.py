@@ -41,8 +41,5 @@ def coerce_numeric_columns(dataframe: pd.DataFrame, column_names: list[str]) -> 
     cleaned_dataframe = dataframe.copy()
     for column_name in column_names:
         if column_name in cleaned_dataframe.columns:
-            cleaned_dataframe[column_name] = pd.to_numeric(
-                cleaned_dataframe[column_name],
-                errors="coerce",
-            )
+            cleaned_dataframe[column_name] = pd.to_numeric(cleaned_dataframe[column_name], errors="coerce")
     return cleaned_dataframe
