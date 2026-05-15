@@ -4,7 +4,7 @@ import streamlit as st
 
 from calculations.helper_sheet_engine import get_helper_dataframes_for_business
 from calculations.summary_calculations import build_business_summary
-from config.constants import APP_TITLE, BUSINESS_TABS, MASTER_SHEET_NAME, SUCCESS_STATUS
+from config.constants import APP_TITLE, BUSINESS_TABS, CUT_SEW_TAB_NAME, MASTER_SHEET_NAME, SUCCESS_STATUS
 from config.workbook_config import HELPER_SHEET_MAPPING, TAB_BUSINESS_MAPPING
 from core.excel_io import (
     ensure_working_workbook,
@@ -26,6 +26,7 @@ from ui.section_tables import render_section_tables
 from ui.styles import apply_global_styles
 from ui.summary_table import render_business_summary_table
 from ui.tab_cards import render_tab_cards
+from ui.cut_sew_tab import render_cut_sew_tab
 
 st.set_page_config(
     page_title=APP_TITLE,
@@ -112,7 +113,7 @@ def main() -> None:
 
     render_page_header()
 
-    all_tabs = st.tabs(BUSINESS_TABS + ["Final Master Sheet"])
+    all_tabs = st.tabs(BUSINESS_TABS + [CUT_SEW_TAB_NAME, "Final Master Sheet"])
 
     for tab_index, business_name in enumerate(BUSINESS_TABS):
         with all_tabs[tab_index]:
@@ -142,6 +143,9 @@ def main() -> None:
             )
             for helper_config, helper_dataframe in helper_views:
                 render_helper_sheet(helper_config["display_name"], helper_dataframe)
+
+    with all_tabs[len(BUSINESS_TABS)]:
+        render_cut_sew_tab()
 
     with all_tabs[-1]:
         render_master_sheet_view(

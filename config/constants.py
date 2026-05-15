@@ -2,6 +2,8 @@ APP_TITLE = "Anjar Manpower Engine"
 APP_SUBTITLE = "Executive manpower planning console"
 
 INPUT_WORKBOOK_PATH = "input/Anjar_manning.xlsx"
+CUT_SEW_WORKBOOK_PATH = "input/Anjar_TT_cut&sew.xlsx"
+CUT_SEW_TAB_NAME = "Anjar_TT_cut&sew"
 WORKING_DIRECTORY = "working"
 WORKING_WORKBOOK_FILENAME = "Anjar_manning_live.xlsx"
 MASTER_SHEET_NAME = "Anjar"
@@ -52,6 +54,7 @@ SUMMARY_TABLE_HEIGHT = 260
 COMPACT_TABLE_HEIGHT = 240
 FINAL_TABLE_HEIGHT = 700
 HELPER_TABLE_HEIGHT = 320
+CUT_SEW_TABLE_HEIGHT = 360
 
 SUCCESS_STATUS = "Frozen"
 PENDING_STATUS = "Draft"

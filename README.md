@@ -15,3 +15,7 @@ streamlit run app.py
 - Live editable workbook: `working/Anjar_manning_live.xlsx`
 - Freeze writes current edits to the live workbook and creates an archive copy in `output/`
 - Reset reloads the live workbook from the original input workbook
+
+
+## Cut & Sew Tab
+Place `Anjar_TT_cut&sew.xlsx` inside the `input/` folder. The app renders every worksheet in the `Anjar_TT_cut&sew` tab.
